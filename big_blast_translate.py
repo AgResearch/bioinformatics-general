@@ -122,11 +122,11 @@ etc
     """
     parser = argparse.ArgumentParser(description=description, epilog=long_description, formatter_class = argparse.RawDescriptionHelpFormatter)
     parser.add_argument("infile", help="name of input fasta file of DNA to translate")
-    parser.add_argument("-o","--outfile", help="name of output file")
+    parser.add_argument("-o","--outfile", help="name of output file (default stdout)")
     parser.add_argument("-b","--blastfile", help="name of file containing blast hits used to determine frame (- = stdin)")
     parser.add_argument("-f","--filter", help="regular expression to filter sequences, applied to sequence description")
-    parser.add_argument("-l","--minlength", help="minimum length of translated sequence to output" , type=int, default=20)
-    parser.add_argument("-m","--markup", help="markup descriptor" , default="frame,start,end,protparam")
+    parser.add_argument("-l","--minlength", help="minimum length of translated sequence to output (default 20)" , type=int, default=20)
+    parser.add_argument("-m","--markup", help="markup descriptor controlling annoation markup added to sequence description (default: frame,start,end,protparam)" , default="frame,start,end,protparam")
 
     args = parser.parse_args()
     return args
