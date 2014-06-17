@@ -1,0 +1,14 @@
+-f
+i1.8
+-m
+40
+-q
+25
+-ae
+ANY
+-n
+8
+-a
+adapters.fasta
+-t
+serge

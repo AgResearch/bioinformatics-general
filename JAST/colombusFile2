@@ -1,0 +1,8 @@
+-s
+111
+-e
+147
+-t
+8
+-o
+-alignments no -unused_reads yes -scaffolding yes -exp_cov 110 -ins_length 375
