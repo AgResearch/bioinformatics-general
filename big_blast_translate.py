@@ -82,10 +82,10 @@ def getParameters():
           gunzip -c Transcripts.hits.gz   |  big_blast_translate.py Transcript_and_mRNA-seq_contigs.fa -o Transcript.translated -b -
 
           # pipe blast results to the program, avoiding the need to store a file of hits
-          blastx -query Transcript_and_mRNA-seq_contigs.fa -num_threads 4 -db uniprot_sprot.fa -evalue 1.0e-6 -outfmt "7 qseqid qstart qend qframe stitle" | big_blast_translate.py Transcript_and_mRNA-seq_contigs.fa -o Transcript.translated -b -
+          blastx -query Transcript_and_mRNA-seq_contigs.fa -num_threads 4 -db uniprot_sprot.fa -evalue 1.0e-6 -outfmt "7 qseqid qstart qend qframe sacc stitle" | big_blast_translate.py Transcript_and_mRNA-seq_contigs.fa -o Transcript.translated -b -
 
           # piping blast to the this script as above but run in chunks on a cluster using tardis
-          tardis.py -w -c 1000 -d my_scratch_dir blastx -query _condition_fasta_input_Transcript_and_mRNA-seq_contigs.fa -num_threads 4 -db uniprot_sprot.fa -evalue 1.0e-6 -outfmt \"7 qseqid qstart qend qframe stitle\" \| big_blast_translate.py _condition_fasta_input_Transcript_and_mRNA-seq_contigs.fa -o _condition_text_output_Transcript.translated -b -
+          tardis.py -w -c 1000 -d my_scratch_dir blastx -query _condition_fasta_input_Transcript_and_mRNA-seq_contigs.fa -num_threads 4 -db uniprot_sprot.fa -evalue 1.0e-6 -outfmt \"7 qseqid qstart qend qframe sacc stitle\" \| big_blast_translate.py _condition_fasta_input_Transcript_and_mRNA-seq_contigs.fa -o _condition_text_output_Transcript.translated -b -
 
           # don't use any hits - all seqs translated in 6 frames
           big_blast_translate.py  Transcript_and_mRNA-seq_contigs.fa -o Transcript.translated
